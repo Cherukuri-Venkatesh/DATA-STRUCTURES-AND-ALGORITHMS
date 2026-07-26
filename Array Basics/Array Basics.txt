@@ -1,0 +1,410 @@
+1. Array Basics
+Definition
+An array is a linear data structure that stores multiple elements of the same data type in contiguous memory locations. Each element is identified by its index, allowing direct access.
+Note: In Python, the built-in list is commonly used as a dynamic array.
+Example
+
+Array = [10, 20, 30, 40, 50]
+
+Index
+
+0   1   2   3   4
+10  20  30  40  50
+
+Python Code
+
+arr = [10, 20, 30, 40, 50]
+
+print(arr)
+print(arr[0])
+print(arr[2])
+
+Time Complexity
+Operation
+Complexity
+Access
+O(1)
+Search
+O(n)
+Insert
+O(n)
+Delete
+O(n)
+Applications
+	•	Database records
+	•	Student marks
+	•	Sensor readings
+	•	Image pixels
+	•	Matrix representation
+
+2. Array Traversal
+Definition
+Array Traversal is the process of visiting every element of an array exactly once to perform an operation such as printing, updating, or searching.
+Example
+
+Array
+
+[5, 8, 12, 15]
+
+Traversal
+
+5
+8
+12
+15
+
+Python Code
+
+arr = [5, 8, 12, 15]
+
+for element in arr:
+    print(element)
+
+Using index:
+
+arr = [5, 8, 12, 15]
+
+for i in range(len(arr)):
+    print(arr[i])
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1)
+Applications
+	•	Printing elements
+	•	Searching
+	•	Updating values
+	•	Calculating sum
+
+3. Insert Element
+Definition
+Insertion means adding a new element into an array at a specified position.
+Since elements must remain in order, elements after the insertion point are shifted one position to the right.
+Example
+Before
+
+[10, 20, 40, 50]
+
+Insert 30 at index 2
+After
+
+[10, 20, 30, 40, 50]
+
+Python Code
+
+arr = [10, 20, 40, 50]
+
+arr.insert(2, 30)
+
+print(arr)
+
+Time Complexity
+	•	Beginning: O(n)
+	•	Middle: O(n)
+	•	End: O(1) amortized
+Applications
+	•	Adding new student records
+	•	Inserting transaction data
+	•	Maintaining ordered lists
+
+4. Delete Element
+Definition
+Deletion removes an existing element from an array.
+After deletion, the remaining elements shift left to fill the empty position.
+Example
+Before
+
+[10, 20, 30, 40, 50]
+
+Delete 30
+After
+
+[10, 20, 40, 50]
+
+Python Code
+Delete by value
+
+arr = [10, 20, 30, 40, 50]
+
+arr.remove(30)
+
+print(arr)
+
+Delete by index
+
+arr = [10, 20, 30, 40, 50]
+
+arr.pop(2)
+
+print(arr)
+
+Time Complexity
+	•	Beginning: O(n)
+	•	Middle: O(n)
+	•	End: O(1)
+Applications
+	•	Removing invalid data
+	•	Cancelling bookings
+	•	Deleting duplicate records
+
+5. Update Element
+Definition
+Updating means replacing the value stored at a particular index with a new value.
+Example
+Before
+
+[10, 20, 30, 40]
+
+Update index 2 to 100
+After
+
+[10, 20, 100, 40]
+
+Python Code
+
+arr = [10, 20, 30, 40]
+
+arr[2] = 100
+
+print(arr)
+
+Time Complexity
+	•	Time: O(1)
+	•	Space: O(1)
+Applications
+	•	Updating marks
+	•	Updating stock prices
+	•	Editing records
+
+6. Linear Search
+Definition
+Linear Search sequentially checks each element until the target element is found or the array ends.
+It works on both sorted and unsorted arrays.
+Example
+
+Array
+
+[12, 8, 25, 30, 18]
+
+Search = 30
+
+Compare
+
+12 ❌
+8 ❌
+25 ❌
+30 ✅
+
+Python Code
+
+arr = [12, 8, 25, 30, 18]
+
+target = 30
+
+for i in range(len(arr)):
+    if arr[i] == target:
+        print("Found at index", i)
+        break
+
+Time Complexity
+	•	Best: O(1)
+	•	Average: O(n)
+	•	Worst: O(n)
+Applications
+	•	Small datasets
+	•	Unsorted arrays
+	•	Simple lookup operations
+
+7. Find Maximum
+Definition
+Finding the maximum means identifying the largest element present in the array.
+Example
+
+[15, 8, 40, 12, 28]
+
+Maximum = 40
+
+Python Code
+Using built-in function
+
+arr = [15, 8, 40, 12, 28]
+
+print(max(arr))
+
+Manual approach
+
+arr = [15, 8, 40, 12, 28]
+
+maximum = arr[0]
+
+for num in arr:
+    if num > maximum:
+        maximum = num
+
+print(maximum)
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1)
+Applications
+	•	Highest salary
+	•	Maximum temperature
+	•	Highest score
+
+8. Find Minimum
+Definition
+Finding the minimum means identifying the smallest element in the array.
+Example
+
+[15, 8, 40, 12, 28]
+
+Minimum = 8
+
+Python Code
+Using built-in function
+
+arr = [15, 8, 40, 12, 28]
+
+print(min(arr))
+
+Manual approach
+
+arr = [15, 8, 40, 12, 28]
+
+minimum = arr[0]
+
+for num in arr:
+    if num < minimum:
+        minimum = num
+
+print(minimum)
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1)
+Applications
+	•	Lowest price
+	•	Minimum temperature
+	•	Lowest score
+
+9. Sum of Elements
+Definition
+The sum of elements is the total obtained by adding all values in the array.
+Example
+
+[2, 4, 6, 8]
+
+Sum = 20
+
+Python Code
+Using built-in function
+
+arr = [2, 4, 6, 8]
+
+print(sum(arr))
+
+Manual approach
+
+arr = [2, 4, 6, 8]
+
+total = 0
+
+for num in arr:
+    total += num
+
+print(total)
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1)
+
+10. Product of Elements
+Definition
+The product of elements is obtained by multiplying every element in the array.
+Example
+
+[2, 3, 4]
+
+Product = 24
+
+Python Code
+
+arr = [2, 3, 4]
+
+product = 1
+
+for num in arr:
+    product *= num
+
+print(product)
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1)
+Applications
+	•	Probability calculations
+	•	Mathematical computations
+	•	Scientific calculations
+
+11. Average of Elements
+Definition
+The average (arithmetic mean) is the sum of all elements divided by the total number of elements.
+Example
+
+Array
+
+[10, 20, 30, 40]
+
+Average
+
+(10 + 20 + 30 + 40) / 4 = 25
+
+Python Code
+
+arr = [10, 20, 30, 40]
+
+average = sum(arr) / len(arr)
+
+print(average)
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1)
+Applications
+	•	Student GPA
+	•	Average rainfall
+	•	Mean salary
+	•	Data analysis
+
+12. Reverse Array
+Definition
+Reversing an array means rearranging its elements so that the first element becomes the last, the second becomes the second last, and so on.
+Example
+Before
+
+[1, 2, 3, 4, 5]
+
+After
+
+[5, 4, 3, 2, 1]
+
+Python Code
+Using slicing
+
+arr = [1, 2, 3, 4, 5]
+
+reversed_arr = arr[::-1]
+
+print(reversed_arr)
+
+In-place
+
+arr = [1, 2, 3, 4, 5]
+
+arr.reverse()
+
+print(arr)
+
+Time Complexity
+	•	Time: O(n)
+	•	Space: O(1) for reverse(), O(n) for slicing
