@@ -1,0 +1,324 @@
+
+PREFIX SUM (Cumulative Sum) – Advanced Professional Notes
+
+===========================================================
+
+1. Definition
+
+A Prefix Sum is a preprocessing technique in which we create a new array where each element stores the sum of all elements from the beginning of the array up to the current index.
+
+Instead of calculating the sum of a range repeatedly, we compute it once and use it to answer multiple queries efficiently.
+
+In simple words:
+
+A Prefix Sum array stores the cumulative sum of an array from left to right.
+
+⸻
+
+2. Basic Concept
+
+Consider the array:
+
+Array
+Index : 0   1   2   3   4
+Value : 2   4   6   8   10
+
+Now construct the Prefix Sum array.
+
+Prefix Sum
+Index : 0   1   2   3   4
+Value : 2   6   12  20  30
+
+How was it calculated?
+
+Prefix[0] = 2
+Prefix[1] = 2 + 4 = 6
+Prefix[2] = 2 + 4 + 6 = 12
+Prefix[3] = 2 + 4 + 6 + 8 = 20
+Prefix[4] = 2 + 4 + 6 + 8 + 10 = 30
+
+⸻
+
+3. Formula
+
+Building Prefix Sum
+
+Prefix[0] = Array[0]
+Prefix[i] = Prefix[i-1] + Array[i]
+
+⸻
+
+Range Sum Formula
+
+To calculate the sum from index L to R:
+
+If L = 0
+
+Sum = Prefix[R]
+
+Otherwise
+
+Sum = Prefix[R] − Prefix[L−1]
+
+This allows us to answer each range sum query in O(1) time after preprocessing.
+
+⸻
+
+4. Why Do We Need Prefix Sum?
+
+Suppose an array contains 100,000 elements, and you need to answer 50,000 range sum queries.
+
+Without Prefix Sum:
+
+For every query, you must traverse the required range.
+
+Time per Query = O(n)
+Total Time = O(n × q)
+
+This becomes extremely slow.
+
+With Prefix Sum:
+
+Build Prefix Array = O(n)
+Each Query = O(1)
+Total = O(n + q)
+
+This is why Prefix Sum is one of the most powerful optimization techniques in DSA.
+
+⸻
+
+5. How Prefix Sum Works
+
+Consider the array:
+
+Array
+[3, 5, 2, 8, 6]
+
+Prefix Sum:
+
+[3, 8, 10, 18, 24]
+
+Find the sum from index 1 to 3.
+
+Without Prefix Sum:
+
+5 + 2 + 8 = 15
+
+With Prefix Sum:
+
+Prefix[3] = 18
+Prefix[0] = 3
+18 − 3 = 15
+
+Only one subtraction is required.
+
+⸻
+
+6. Algorithm
+
+Step 1
+
+Create a Prefix Sum array.
+
+Step 2
+
+Store the first element.
+
+Prefix[0] = Array[0]
+
+Step 3
+
+Traverse the array.
+
+Prefix[i] = Prefix[i−1] + Array[i]
+
+Step 4
+
+Answer every query using
+
+Prefix[R] − Prefix[L−1]
+
+⸻
+
+7. Time and Space Complexity
+
+Operation	Complexity
+Build Prefix Array	O(n)
+Single Range Query	O(1)
+Multiple Queries	O(q)
+Space	O(n)
+
+⸻
+
+8. Where is Prefix Sum Used?
+
+Prefix Sum is mainly used whenever a problem involves continuous ranges (subarrays) and multiple queries.
+
+Common use cases include:
+
+1. Range Sum Queries
+
+Find the sum between two indices many times.
+
+Example:
+
+Sum from index 5 to 20
+Sum from index 30 to 80
+Sum from index 100 to 500
+
+⸻
+
+2. Subarray Problems
+
+Whenever the problem contains words like:
+
+* Subarray Sum
+* Sum of Continuous Elements
+* Continuous Range
+
+Prefix Sum is often a suitable technique.
+
+Examples:
+
+* Sum of all subarrays
+* Subarray Sum Equals K
+* Count subarrays with a given sum
+
+⸻
+
+3. Multiple Query Problems
+
+If many queries ask about different ranges on the same array, Prefix Sum avoids recalculating sums repeatedly.
+
+Example:
+
+Query 1 → Sum(2, 7)
+Query 2 → Sum(5, 20)
+Query 3 → Sum(0, 15)
+
+⸻
+
+4. Equilibrium / Pivot Index
+
+Find an index where
+
+Left Sum = Right Sum
+
+Prefix Sum makes left-side sums available instantly.
+
+⸻
+
+5. Difference Array Problems
+
+Difference arrays are closely related to Prefix Sum and are used for efficient range updates.
+
+Applications:
+
+* Range Increment
+* Range Update
+* Batch Modifications
+
+⸻
+
+6. 2D Matrix Problems
+
+Prefix Sum extends to matrices.
+
+Applications:
+
+* Rectangle Sum Queries
+* Image Processing
+* Heat Maps
+* GIS Systems
+
+⸻
+
+7. Competitive Programming
+
+Prefix Sum appears frequently in:
+
+* CodeChef
+* Codeforces
+* LeetCode
+* HackerRank
+* Google Kick Start
+
+⸻
+
+9. Problems Where Prefix Sum is Used
+
+Some common interview and coding problems:
+
+Beginner
+
+* Range Sum Query
+* Running Sum of 1D Array
+* Find Pivot Index
+* Sum Between Two Indices
+
+⸻
+
+Intermediate
+
+* Subarray Sum Equals K
+* Continuous Subarray Sum
+* Count Number of Nice Subarrays
+* Maximum Size Subarray Sum Equals K
+
+⸻
+
+Advanced
+
+* Difference Array
+* Prefix XOR
+* 2D Prefix Sum
+* Number of Submatrices That Sum to Target
+* Maximum Sum Rectangle
+
+⸻
+
+10. Advantages
+
+* Reduces repeated calculations.
+* Answers range sum queries in O(1).
+* Easy to implement.
+* Improves overall algorithm efficiency.
+* Useful in many interview and competitive programming problems.
+* Forms the basis for several advanced techniques (Difference Arrays, Prefix XOR, 2D Prefix Sum).
+
+⸻
+
+11. Limitations
+
+* Requires additional O(n) space (unless built in-place).
+* Best suited for static arrays (arrays that do not change frequently).
+* If elements are updated often, the Prefix Sum array must be rebuilt.
+* For frequent updates and queries, data structures like Fenwick Tree (Binary Indexed Tree) or Segment Tree are more suitable.
+
+⸻
+
+12. Key Observations (Interview Tips)
+
+* Prefix Sum is useful only for continuous (contiguous) ranges.
+* It is most beneficial when multiple range sum queries are asked.
+* Build the Prefix Sum array once, then answer queries in constant time.
+* Always handle the edge case when L = 0 separately.
+* Prefix Sum is an optimization technique, not a searching or sorting algorithm.
+* Variants include:
+    * Prefix Sum
+    * Prefix XOR
+    * Prefix Product
+    * Prefix Frequency
+    * 2D Prefix Sum
+
+⸻
+
+13. Summary
+
+* Definition: Stores cumulative sums from the beginning of the array.
+* Purpose: Efficiently answer range sum and subarray queries.
+* Build Time: O(n)
+* Query Time: O(1)
+* Space: O(n)
+* Common Uses: Range Sum Queries, Subarray Problems, Pivot Index, Difference Arrays, 2D Matrix Queries, Competitive Programming.
+* Interview Importance: One of the most frequently used preprocessing techniques in coding interviews and competitive programming.
